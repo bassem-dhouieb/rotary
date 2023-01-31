@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-u10g7$7bsl%vqj$y#i_nc$n(q@n1@9fcdx@zzc04vo6_3!id11
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh','*']
+ALLOWED_HOSTS = ['*']
 
 
 
@@ -125,7 +125,7 @@ STATIC_URL = 'static/'
 MEDIA_URL = ''
 MEDIA_ROOT = ''
 
-
+CSRF_TRUSTED_ORIGINS = ['https://web-production-7c75.up.railway.app/']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
