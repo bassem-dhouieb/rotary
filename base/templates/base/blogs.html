@@ -1,0 +1,88 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+<main>
+  <!-- News Blog details area start -->
+  <div class="news-blog-details-area pt-100 pb-130">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="tpblog">
+            <div class="section-title-wrapper">
+              <span class="section-sub-title has-before has-after text-center">
+                Our latest
+              </span>
+              <h3 class="section-title text-center">Action and Donation</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 left">
+          {% for p in posts%}
+
+          <div class="blog-details-items mb-60">
+            <div class="blog-details-thumb">
+              <a href="{% url 'blog' p.slug %}"
+                ><img src="{{p.image}}" alt=""
+              /></a>
+            </div>
+            <div class="blog-details-info d-flex">
+              <div class="blog-details-date news-blog">
+                <i class="fa-regular fa-clock"></i>
+                <span>{{p.date}}</span>
+              </div>
+            </div>
+            <div class="blog-details-content">
+              <h3 class="blog-details-title news-blog">
+                <a href="{% url 'blog' p.slug %}">{{p.title}}</a>
+              </h3>
+              <p>{{p.content}}</p>
+            </div>
+            <div class="news-blog-btn">
+              <a
+                href="{% url 'blog' p.slug %}"
+                class="tp-btn tp-btn-shine-effect"
+                >Read MOre</a
+              >
+            </div>
+          </div>
+
+          {% endfor %}
+
+          <div class="our-portfolio-pagination">
+            <nav class="donation-pagination news-blog mt-20" aria-label="...">
+              <ul class="pagination">
+                {% if posts.has_previous %}
+                <li class="page-item">
+                  <a class="page-link" href="?page=1"
+                    ><i class="fa-regular fa-arrow-left"></i
+                  ></a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ posts.previous_page_number }}">{{ posts.previous_page_number }}</a>
+                </li>
+                {% endif %}
+                <li class="page-item active" aria-current="page">
+                  <span class="page-link">{{ posts.number }}</span>
+                </li>
+                {% if posts.has_next %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ posts.next_page_number }}">{{ posts.next_page_number }}</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ posts.paginator.num_pages }}"
+                    ><i class="fa-regular fa-arrow-right"></i
+                  ></a>
+                </li>
+                {% endif %}
+              </ul>
+            </nav>
+          </div>
+        </div>
+        {% include 'sidebar.html' %}
+      </div>
+    </div>
+  </div>
+  <!-- Blog details area end -->
+</main>
+{% endblock content %}

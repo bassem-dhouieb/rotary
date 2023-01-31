@@ -1,0 +1,55 @@
+<div class="col-lg-4">
+    <div class="blog-left-box pl-20">
+      <div class="blog-details__search-box mb-40">
+        <h3>Search Here</h3>
+        <div class="search-form p-relative">
+          <form action="#">
+            <input type="text" placeholder="search here" />
+            <button><i class="far fa-search"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="sidebar__widget mb-40">
+        <h3 class="sidebar__widget-title">Categories</h3>
+        <div class="sidebar__widget-content">
+          <ul>
+            {% for category in categories %}
+            <li>
+              <a href="blogs">{{ category.name }} </a>
+            </li>
+
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="sidebar__widget mb-40">
+        <h3 class="sidebar__widget-title">Recent Post</h3>
+        <div class="sidebar__widget-content">
+          {% for p in posts %}
+          <div class="sidebar__post">
+            <div class="rc__post">
+              <div class="rc__post d-flex align-items-center">
+                <div class="rc__post-thumb">
+                  <a href="blog-details.html"
+                    ><img
+                      width="150px"
+                      height="100px"
+                      src="{{p.image.url}}"
+                      alt=""
+                  /></a>
+                </div>
+                <div class="rc__post-content">
+                  <span>{{p.date}}</span>
+                  <h3 class="rc__post-title">
+                    <a href="blog-details.html">{{p.title}}</a>
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>

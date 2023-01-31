@@ -1,0 +1,126 @@
+{% load static %}
+<!-- header area start -->
+<header
+  id="header-sticky"
+  class="transparent-header header-sticky header__sticky"
+>
+  <div class="header-area header-area-2 header__space pt-40">
+    <div class="container-fluid">
+      <div class="row align-items-center justify-content-between">
+        <div class="col-xl-2 col-lg-2 col-md-6 col-6">
+          <div class="logo">
+            <a href="/">
+              <img alt="logo" src="{% static 'img/logo/logo1.png' %}" />
+            </a>
+          </div>
+        </div>
+        <div class="d-none d-xl-block col-xl-6 col-lg-6">
+          <div class="main-menu main-menu-2 menu__space">
+            <nav id="tp-mobile-menu">
+              <ul>
+                <li>
+                  <a href="/">Home</a>
+                </li>
+                <li>
+                  <a href="/about">about</a>
+                </li>
+                <li >
+                  <a href="/team">Member</a>
+                </li>
+                <li >
+                  <a href="/blogs">Blog</a>
+                  
+                </li>
+                <li>
+                  <a href="/contact">Contact</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-6 col-md-6 col-6">
+          <div
+            class="header-right d-none d-lg-flex align-items-center justify-content-end"
+          >
+            <div class="header-icon">
+              <ul class="d-flex">
+                <li class="search-btn-wrap">
+                  <a class="tp-header-search-toggle">
+                    <i
+                      class="fa-regular fa-magnifying-glass header-search-open"
+                    ></i>
+                    <i class="header_search-close text-white far fa-times"></i>
+                  </a>
+                  <div class="search-form">
+                    <form action="#">
+                      <input type="text" placeholder="search here" />
+                      <button type="submit">
+                        <i class="far fa-search"></i>
+                      </button>
+                    </form>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="language d-none d-xxl-block ml-35">
+              <span
+                ><a href="#">Eng <i class="fa-regular fa-chevron-down"></i></a
+              ></span>
+              <ul>
+                <li><a href="#">Fr</a></li>
+                <li><a href="#">العربية</a></li>
+              </ul>
+            </div>
+            <div class="header-btn">
+              <a class="tp-btn tp-btn-shine-effect" href="donation-details.html"
+                ><span>Donate now</span></a
+              >
+            </div>
+          </div>
+          <div class="mobile-menu d-xl-none">
+            <button class="tp-side-action tp-toogle hamburger-btn">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- header area end -->
+
+<!-- mobile menu style start -->
+<div class="fix">
+  <div class="tp-side-info">
+    <div class="tp-side-logo">
+      <a href="/">
+        <img src="{% static 'img/logo/logo1.png' %}" alt="logo" />
+      </a>
+    </div>
+    <div class="tp-side-close">
+      <button><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="tp-mobile-menu-pos"></div>
+    <div class="tp-side-content">
+      <div class="tp-side-content__inner-btn mb-100">
+        <a href="/contact" class="tp-btn">Donate now</a>
+      </div>
+      <div class="tp-contact-info d-flex flex-column">
+        <a href="tel:088245684379"
+          ><i class="fa-solid fa-phone-flip"></i> +2236 384 870</a
+        >
+        <a class="mail" href="mailto:infomai.@mail.com">Infomai.@mail.com</a>
+      </div>
+      <div class="tpfooter__social tpside-social">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="offcanvas-overlay"></div>
+</div>
+<!-- mobile menu style end -->
