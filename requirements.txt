@@ -34,7 +34,7 @@ protobuf==4.21.9
 psutil==5.9.1
 ptyprocess==0.7.0
 pure-eval==0.2.2
-pycairo==1.21.0
+gunicorn==20.0.4
 Pygments==2.12.0
 PyGObject==3.42.2
 pyparsing==3.0.9
