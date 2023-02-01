@@ -17,7 +17,7 @@ class Member(models.Model):
     
 
 class PostImage(models.Model):
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='rotary/members/')
     post = models.ForeignKey('Post',on_delete=models.CASCADE)   
     def __str__(self):
          return self.post.title
@@ -34,7 +34,7 @@ class Post(models.Model):
     date = models.DateField()
     categories = models.ManyToManyField('Category')
     content = models.TextField()
-    image = models.ImageField(blank=True,upload_to='images/')
+    image = models.ImageField(blank=True,upload_to='rotary/posts')
     
     
     def __str__(self):
