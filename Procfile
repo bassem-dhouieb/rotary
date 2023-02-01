@@ -1,1 +1,1 @@
-web: gunicorn rotary.wsgi:application
+web: gunicorn rotary.wsgi --log-file -
