@@ -18,99 +18,44 @@
             <div class="blog-details-content">
               <h3 class="blog-details-title">{{post.title}}</h3>
               <p>
-                Laboratories used for scientific research take many forms
-                because of the differing requirements of specialists in the
-                various fields of science and engineering. A physics laboratory
+               {{post.content}}
               </p>
-              <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, aperiam ipsquae ab illo
-                inventore veritatis et quasi architecto beatae vitae dicta sunt
-                explicabo. Nemo enim voluptatem voluptas sit aspernatur aut odit
-                aut fugit, sed quia consequuntur magni dolores eos qui ratione
-                voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-                ipsum quia dolor sit amet,
-              </p>
-              <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, aperiam ipsquae ab illo
-                inventore veritatis et quasi architecto beatae vitae dicta sunt
-                explicabo
-              </p>
+            
             </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="blog-details-no-secret mt-30">
-                  <h3 class="title">There are no secrets</h3>
-                  <p>
-                    Must explain to you how all praising uts pain was born and I
-                    will gives you a itself completed account of the system, and
-                    sed expounds the ut actual teachings of that greater
-                  </p>
-                  <ul>
-                    <li>
-                      <span><i class="fas fa-check"></i></span>Extramural
-                      Funding
-                    </li>
-                    <li>
-                      <span><i class="fas fa-check"></i></span>Bacteria Markers
-                    </li>
-                    <li>
-                      <span><i class="fas fa-check"></i></span>Nam nec mi
-                      euismod euismod
-                    </li>
-                  </ul>
-                </div>
+            
+            <div class="blog-details-content mb-50">
+        
+              <div class="slider">
+                {% for image in post_images %}
+                <img
+                  id="img-{{forloop.counter}}"
+                  src="{{image.image.url}}"
+                  alt="Image {{forloop.counter}}"
+                />
+                {% endfor %}
+                
+                {% if forloop.counter0 == 0  %}
+                  active
+                {% endif %}
+                  
               </div>
-              <div class="col-md-6">
-                <div class="no-secret-thumb mt-30">
-                  <img
-                    src="{% static 'img/blog/blog-details/blog-thumb-2.jpg' %}"
-                    alt=""
-                  />
-                </div>
+              <div class="navigation-button">
+                {% for image in post_images %}
+                <span class="dot  {% if forloop.counter0 == 0  %}active{% endif %}" 
+                onclick="changeSlide({{forloop.counter0}})"></span>
+                {% endfor %}
               </div>
+              
+         
             </div>
-            <div class="blog-details-content">
-              <h3 class="details-title">Assistance in the Student Program</h3>
-              <p>
-                Unlike detailed blueprints that lay out all tasks, deadlines,
-                bug reports, and more along the way, technology roadmaps are
-                high-level visual summaries highlighting a company’s vision or
-                plans.
-              </p>
-              <p>
-                In an Agile approach, a technology roadmap feeds the sprint and
-                grooming processes, providing insight into how the product will
-                travel from start to finish. It makes it easier for development
-                teams to:
-              </p>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="blog-details-content-thumb mt-20">
-                  <img
-                    src="{% static 'img/blog/blog-details/blog-thumb-3.jpg' %}"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="blog-details-content-thumb mt-20">
-                  <img
-                    src="{% static 'img/blog/blog-details/blog-thumn-4.jpg' %}"
-                    alt=""
-                  />
-                </div>
-              </div>
-            </div>
+           
             <div class="tag-box">
               <div class="row align-items-center">
                 <div class="col-md-7">
                   <div class="tagcloud">
                     <span>Categories</span>
                     {% for category in post.categories.all %}
-                    <a href="blogs">{{ category.name }}</a>
+                    <a href="{% url 'blogs' %}?q={{category.name}}"">{{ category.name }}</a>
                     
                     {% endfor %}
                   

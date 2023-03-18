@@ -3,8 +3,8 @@
       <div class="blog-details__search-box mb-40">
         <h3>Search Here</h3>
         <div class="search-form p-relative">
-          <form action="#">
-            <input type="text" placeholder="search here" />
+          <form action="{% url 'blogs' %}" method="GET">
+            <input name="q" type="text" placeholder="search here" />
             <button><i class="far fa-search"></i></button>
           </form>
         </div>
@@ -15,7 +15,7 @@
           <ul>
             {% for category in categories %}
             <li>
-              <a href="blogs">{{ category.name }} </a>
+              <a href="{% url 'blogs' %}?q={{category.name}}"">{{ category.name }} </a>
             </li>
 
             {% endfor %}
@@ -31,7 +31,7 @@
             <div class="rc__post">
               <div class="rc__post d-flex align-items-center">
                 <div class="rc__post-thumb">
-                  <a href="blog-details.html"
+                  <a href="{% url 'blog' p.slug %}"
                     ><img
                       width="150px"
                       height="100px"
@@ -42,7 +42,7 @@
                 <div class="rc__post-content">
                   <span>{{p.date}}</span>
                   <h3 class="rc__post-title">
-                    <a href="blog-details.html">{{p.title}}</a>
+                    <a href="{% url 'blog' p.slug %}">{{p.title}}</a>
                   </h3>
                 </div>
               </div>

@@ -18,7 +18,7 @@
 
       <div class="row">
         <div class="col-lg-8 left">
-          {% for p in posts%}
+          {% for p in page%}
 
           <div class="blog-details-items mb-60">
             <div class="blog-details-thumb">
@@ -49,35 +49,7 @@
 
           {% endfor %}
 
-          <div class="our-portfolio-pagination">
-            <nav class="donation-pagination news-blog mt-20" aria-label="...">
-              <ul class="pagination">
-                {% if posts.has_previous %}
-                <li class="page-item">
-                  <a class="page-link" href="?page=1"
-                    ><i class="fa-regular fa-arrow-left"></i
-                  ></a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="?page={{ posts.previous_page_number }}">{{ posts.previous_page_number }}</a>
-                </li>
-                {% endif %}
-                <li class="page-item active" aria-current="page">
-                  <span class="page-link">{{ posts.number }}</span>
-                </li>
-                {% if posts.has_next %}
-                <li class="page-item">
-                  <a class="page-link" href="?page={{ posts.next_page_number }}">{{ posts.next_page_number }}</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="?page={{ posts.paginator.num_pages }}"
-                    ><i class="fa-regular fa-arrow-right"></i
-                  ></a>
-                </li>
-                {% endif %}
-              </ul>
-            </nav>
-          </div>
+          {% include 'pagination.html' %}
         </div>
         {% include 'sidebar.html' %}
       </div>

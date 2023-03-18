@@ -19,20 +19,34 @@
             <nav id="tp-mobile-menu">
               <ul>
                 <li>
-                  <a href="/">Home</a>
+                  <a href="{% url 'index' %}">Home</a>
                 </li>
-                <li>
-                  <a href="/about">about</a>
+                <li class="has-dropdown">
+                  <a href="{% url 'about' %}">about</a>
+                  <ul class="submenu">
+                    <li >
+                      <a href="{% url 'team' %}">Member</a>
+                    </li>
+                 </ul>
                 </li>
+               
+                <li class="has-dropdown" >
+                  <a href="{% url 'blogs' %}">Actions</a>
+                  <ul class="submenu">
+                    <li >
+                      <a href="{% url 'projects' %}">Projects</a>
+                      
+                    </li>
+                 </ul>
+                  
+                </li>
+               
                 <li >
-                  <a href="/team">Member</a>
-                </li>
-                <li >
-                  <a href="/blogs">Blog</a>
+                  <a href="{% url 'donations' %}">Donations</a>
                   
                 </li>
                 <li>
-                  <a href="/contact">Contact</a>
+                  <a href="{% url 'contact' %}">Contact</a>
                 </li>
               </ul>
             </nav>
@@ -52,8 +66,8 @@
                     <i class="header_search-close text-white far fa-times"></i>
                   </a>
                   <div class="search-form">
-                    <form action="#">
-                      <input type="text" placeholder="search here" />
+                    <form action="">
+                      <input name="q" type="text" placeholder="search here" />
                       <button type="submit">
                         <i class="far fa-search"></i>
                       </button>

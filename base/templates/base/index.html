@@ -21,7 +21,7 @@
                       those who need <span>...</span>
                     </h2>
                     <div class="hero-btn">
-                      <a class="tp-btn tp-btn-shine-effect" href="about"
+                      <a class="tp-btn tp-btn-shine-effect" href="{% url 'about' %}"
                         >About us</a
                       >
                     </div>
@@ -51,7 +51,7 @@
                       change a life <span>...</span>
                     </h2>
                     <div class="hero-btn">
-                      <a class="tp-btn tp-btn-shine-effect" href="about"
+                      <a class="tp-btn tp-btn-shine-effect" href="{% url 'about' %}"
                         >About us</a
                       >
                     </div>
@@ -80,7 +80,7 @@
                       those who need <span>...</span>
                     </h2>
                     <div class="hero-btn">
-                      <a class="tp-btn tp-btn-shine-effect" href="about"
+                      <a class="tp-btn tp-btn-shine-effect" href="{% url 'about' %}"
                         >About us</a
                       >
                     </div>
@@ -109,7 +109,7 @@
                       those who need <span>...</span>
                     </h2>
                     <div class="hero-btn">
-                      <a class="tp-btn tp-btn-shine-effect" href="about"
+                      <a class="tp-btn tp-btn-shine-effect" href="{% url 'about' %}"
                         >About us</a
                       >
                     </div>
@@ -148,7 +148,7 @@
               data-wow-duration="1s"
               data-wow-delay=".7s"
             >
-              <a class="tp-btn-black tp-btn-shine-effect" href="about"
+              <a class="tp-btn-black tp-btn-shine-effect" href="{% url 'about' %}"
                 >About Rotary</a
               >
             </div>
@@ -304,7 +304,7 @@
               </li>
             </ul>
             <div class="tpvolunteers-2-btn">
-              <a class="tp-btn tp-btn-shine-effect" href="contact"
+              <a class="tp-btn tp-btn-shine-effect" href="{% url 'contact' %}"
                 >Became a volenteer</a
               >
             </div>
@@ -336,7 +336,7 @@
                 data-wow-duration="1s"
                 data-wow-delay=".3s"
               >
-                <a class="tp-btn-black tp-btn-shine-effect" href="about"
+                <a class="tp-btn-black tp-btn-shine-effect" href="{% url 'about' %}"
                   >About Rotary</a
                 >
               </div>
@@ -606,7 +606,7 @@
       </div>
       <div class="row">
         <div class="tpcard-btn d-flex justify-content-center mt-55">
-          <a class="tp-btn tp-btn-shine-effect" href="donation-details.html"
+          <a class="tp-btn tp-btn-shine-effect" href="{% url 'donations' %}"
             >All Campains</a
           >
         </div>
@@ -652,7 +652,7 @@
               </li>
             </ul>
             <div class="tpcta-3-btn">
-              <a class="tp-btn tp-btn-shine-effect" href="contact"
+              <a class="tp-btn tp-btn-shine-effect" href="{% url 'contact' %}"
                 >Became a volenteer</a
               >
             </div>
@@ -710,7 +710,7 @@
           <div class="tpproject-btn mb-40">
             <a
               class="tp-btn-black tp-btn-shine-effect text-xl-end"
-              href="our-portfolio.html"
+              href="{% url 'projects' %}"
               >See all Project</a
             >
           </div>
@@ -967,6 +967,7 @@
         </div>
       </div>
       <div class="row tp-gx-40">
+        {% for post in posts %}
         <div class="col-xl-6 col-lg-6">
           <div
             class="tpblog mt-30 wow fadeInLeft"
@@ -974,81 +975,40 @@
             data-wow-delay=".3s"
           >
             <div class="tpblog__thumb">
-              <a href="blog-details.html"
+              <a href="{% url 'blog' post.slug %}"
                 ><img
                   class="grayscale"
-                  src="{% static 'img/blog/blog-7.jpg' %}"
+                  height="300px"
+                  src="{{post.image.url}}"
                   alt=""
               /></a>
-              <a href="blog-details.html"><span>Health</span></a>
+              
+                    <a href="blogs"><span>{{ post.categories.first }}</span></a>
+                    
+                    
+        
             </div>
             <div class="tpblog__content">
               <h3 class="tpblog__title">
-                <a href="blog-details.html"
-                  >Why you should join as a volunteer with us - 2022</a
-                >
+                <a href="{% url 'blog' post.slug %}">{{post.title}}</a>
               </h3>
-              <p>
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form
-              </p>
+              <p>{{post.content}}</p>
               <div
                 class="tpblog__details d-flex justify-content-md-between align-items-center flex-wrap"
               >
-                <div class="tpblog__author">
-                  <img src="{% static 'img/blog/blog-auther.png' %}" alt="" />
-                  <span>Rasalina Halim</span>
-                </div>
                 <div class="tpblog__comments align-items-center">
-                  <span>356<i class="fa-regular fa-heart"></i></span>
-                  <span
-                    >12.January.2022<i class="fa-regular fa-clock"></i
-                  ></span>
+                  <span>{{post.date}}<i class="fa-regular fa-clock"></i></span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-xl-6 col-lg-6">
-          <div
-            class="tpblog mt-30 wow fadeInRight"
-            data-wow-duration="1s"
-            data-wow-delay=".3s"
-          >
-            <div class="tpblog__thumb">
-              <a href="blog-details.html"
-                ><img
-                  class="grayscale"
-                  src="{% static 'img/blog/blog-8.jpg' %}"
-                  alt=""
-              /></a>
-              <a href="blog-details.html"><span>Donation</span></a>
-            </div>
-            <div class="tpblog__content">
-              <h3 class="tpblog__title">
-                <a href="blog-details.html"
-                  >Take Your Online Donation to the Next Level!</a
-                >
-              </h3>
-              <p>
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form
-              </p>
-              <div
-                class="tpblog__details d-flex justify-content-md-between align-items-center flex-wrap"
-              >
-                <div class="tpblog__author">
-                  <img src="{% static 'img/blog/blog-auther-2.jpg' %}" alt="" />
-                  <span>Hallen Alinar</span>
-                </div>
-                <div class="tpblog__comments align-items-center">
-                  <span>356<i class="fa-regular fa-heart"></i></span>
-                  <span
-                    >12.January.2022<i class="fa-regular fa-clock"></i
-                  ></span>
-                </div>
-              </div>
-            </div>
+        {% endfor %}
+        <div class="row">
+          <div class="tpcard-btn d-flex justify-content-center mt-55">
+            <a class="tp-btn tp-btn-shine-effect" href="{% url 'blogs' %}"
+              >All Posts</a
+            >
           </div>
         </div>
       </div>

@@ -1,0 +1,103 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+<main>
+   <!-- donation details area start -->
+   <div class="donation-details-area pt-100 pb-90">
+    <div class="container">
+       <div class="row">
+          <div class="col-lg-8">
+             <div class="donation-details-item">
+                <div class="donation-card-box donaion-details">
+                   <div class="card-item">
+                      <div class="tpcard__wrapper donation-details">
+                         <div class="tpcard__thumb donation-details">
+                            <img width="100%" src="https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547_1280.jpg" alt="">
+                         </div>
+                         <div class="tpcard__content donation-details">
+                            <h4 class="tpcard__title donation-details">Donate for African Child
+                               Education
+                            </h4>
+                            <div class="tpcard__progresss">
+                               <div class="progress donation-details">
+                                  <div class="progress-bar donation-details" role="progressbar"
+                                     aria-label="Example with label" style="width: 65%;" aria-valuenow="25"
+                                     aria-valuemin="0" aria-valuemax="100">
+                                     <span>80%</span>
+                                  </div>
+                               </div>
+                            </div>
+                            <div class="tpcard__bottom d-flex justify-content-between">
+                               <div class="tpcard__details donation-details">
+                                  <span class="subtitle">our goal</span> <br>
+                                  <span class="sale">$28.0000</span>
+                               </div>
+                               <div class="tpcard__details donation-details">
+                                  <span class="subtitle text-center">Raised</span> <br>
+                                  <span class="sale">$12.9098</span>
+                               </div>
+                               <div class="tpcard__details donation-details">
+                                  <span class="subtitle text-end">to go</span> <br>
+                                  <span class="sale">$58,000</span>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                
+                <div class="donation-error-notification p-relative">
+                   
+                   <div class="donation-btn">
+                      <a class="tp-btn tp-btn-shine-effect" href="donation-details.html">Donate now</a>
+                   </div>
+                </div>
+                <div class="donation-details-text mt-60">
+                   
+                   <p class="mb-30">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate
+                      vestibulum
+                      Phasellus rhoncus, dolor eget viverra pretium, dolor tellus aliquet nunc, vitae ultricies
+                      erat elit eu lacus. Vestibulum non justo consectetur, cursus ante, tincidunt sapien. Nulla
+                      quis diam sit amet turpis interdum accumsan quis nec enim. Vivamus faucibus ex sed nibh
+                      egestas elementum. Mauris et bibendum dui. Aenean consequat pulvinar luctus. Suspendisse
+                      consectetur tristique tortor</p>
+                </div>
+             </div>
+          </div>
+          <div class="col-lg-4">
+             <div class="right-padding pl-25">
+                <div class="sidebar__widget donation-details mb-40">
+                   <h3 class="sidebar__widget-title donation-details">Categories</h3>
+                   <div class="sidebar__widget-content donation-details">
+                      <ul>
+                        {% for category in categories %}
+                        <li>
+                          <a href="blogs">{{ category.name }} </a>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                   </div>
+                </div>
+                <div class="sidebar__widget-contact">
+                   <h3 class="sidebar__widget-title donation-details contact">Direct Contact us</h3>
+                   <input type="text" placeholder="Enter name*">
+                   <input type="email" placeholder="Enter your mail*">
+                   <input type="text" placeholder="Message*">
+                   <div class="sidebar-btn">
+                      <button class="tp-btn tp-btn-shine-effect">send message</button>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+    <!-- donation details area end -->
+
+
+
+
+      </div>
+    </div>
+  </div>
+  <!-- Blog details area end -->
+</main>
+{% endblock content %}

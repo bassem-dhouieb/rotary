@@ -1,0 +1,38 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+<main>
+  
+    <!-- our portfolio area start -->
+    <div class="our-portfolio-area pt-90 pb-130">
+      <div class="container">
+         <div class="row">
+
+            {% for p in  page %}
+            <div class="col-lg-6">
+               <div class="our-portfolio-wrapper mt-40 wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s">
+                  <div class="our-portfolio-thumb">
+                     <a href="{% url 'project' p.slug %}"><img width="100%%" src="{{p.image.url}}"
+                           alt=""></a>
+                  </div>
+                  <div class="our-portfolio-content">
+                     <h3 class="portfolio-title"><a href="{% url 'project' p.slug %}">{{p.title}}</a></h3>
+                     <p>{{p.content}}</p>
+                     <div class="our-portfolio-btn">
+                        <a href="{% url 'project' p.slug %}">View Case Studies <i
+                              class="fa-regular fa-arrow-right"></i></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            {% endfor %}
+
+           
+            {% include 'pagination.html' %}
+         </div>
+      </div>
+   </div>
+   <!-- our portfolio area end -->
+
+
+</main>
+{% endblock content %}

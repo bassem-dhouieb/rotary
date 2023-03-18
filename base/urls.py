@@ -9,5 +9,11 @@ urlpatterns = [
     path('blogs', views.blogs , name="blogs"),
     path('blog/<str:pk>/', views.blog , name="blog"),
     
+    path('projects', views.projects , name="projects"),
+    path('project/<str:pk>/', views.project , name="project"),
+    
+    path('donations', views.donations , name="donations"),
+    path('donation/<str:pk>/', views.donation , name="donation"),
+    
 ]
 
