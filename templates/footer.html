@@ -33,11 +33,8 @@
               <div class="tpfooter-widget tp-footer-col-1">
                 <h3 class="tpfooter-widget__title">About us</h3>
                 <ul>
-                  <li><a href="#">Policy Priorities</a></li>
-                  <li><a href="#">Careers</a></li>
-                  <li><a href="#">Internships</a></li>
-                  <li><a href="#">Financial Reports</a></li>
-                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="{% url 'about' %}">About us</a></li>
+                  <li><a href="{% url 'team'  %}">Members</a></li>
                 </ul>
               </div>
             </div>
@@ -46,10 +43,8 @@
                 <h3 class="tpfooter-widget__title">Support us</h3>
                 <ul>
                   <li><a href="#">Donate Now</a></li>
-                  <li><a href="#">Store</a></li>
-                  <li><a href="#">Reports</a></li>
-                  <li><a href="#">Press Releases</a></li>
-                  <li><a href="#">Privacy & Policy</a></li>
+                  <li><a href="{% url 'contact'  %}">Contact us</a></li>
+
                 </ul>
               </div>
             </div>
@@ -57,11 +52,11 @@
               <div class="tpfooter-widget tp-footer-col-3">
                 <h3 class="tpfooter-widget__title">Quick LInks</h3>
                 <ul>
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">About us</a></li>
-                  <li><a href="#">Contact us</a></li>
-                  <li><a href="#">Donation</a></li>
-                  <li><a href="#">Join Volentter</a></li>
+                  <li><a href="{% url 'index'  %}">Home</a></li>
+                  <li><a href="{% url 'blogs'  %}">Actions</a></li>
+                  <li><a href="{% url 'projects'  %}">Projects</a></li>
+                  <li><a href="{% url 'donations'  %}">Donations</a></li>
+               
                 </ul>
               </div>
             </div>

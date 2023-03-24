@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Post, Category, Member,PostImage,Project,ProjectImage
+from .models import Post, Category, Member,PostImage,Project,ProjectImage,Donation
 
 
 admin.site.register(Category)
@@ -37,3 +37,4 @@ class ProjectAdmin(admin.ModelAdmin):
     inlines = [ProjectImageInline]
 
 admin.site.register(Project, ProjectAdmin)
+admin.site.register(Donation)

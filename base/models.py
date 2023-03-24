@@ -65,3 +65,30 @@ class ProjectImage(models.Model):
     project = models.ForeignKey('Project',on_delete=models.CASCADE)   
     def __str__(self):
          return self.project.title
+     
+
+class Donation(models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    slug = AutoSlugField(populate_from='title',unique=True)
+    content = models.TextField()
+    goal = models.IntegerField()
+    raised = models.IntegerField()
+    image = models.ImageField(blank=True,upload_to='rotary/donations')
+    categories = models.ManyToManyField('Category')
+    
+    def get_raised(self):
+        return  f'{self.raised:,}'
+    
+    def get_goal(self):
+        return  f'{self.goal:,}'
+
+    def get_to_go(self):
+        return  f'{self.goal - self.raised:,}'
+    
+    def get_percent(self):
+        return  int(self.raised * 100 / self.goal)
+        
+    
+    def __str__(self):
+         return self.title
+       

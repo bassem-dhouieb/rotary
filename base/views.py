@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Post, Member,Category,Project
+from .models import Post, Member,Category,Project,Donation
 from django.core.paginator import Paginator
 from django.db.models import Q
 
@@ -10,7 +10,9 @@ from django.db.models import Q
 # Create your views here.
 def index(request):
     posts = Post.objects.all().order_by('date').reverse()
-    context = {'posts':posts[:2]}
+    projects = Project.objects.all().order_by('date').reverse()
+    donations = Donation.objects.all().order_by('title').reverse()
+    context = {'posts':posts[:2],'projects':projects[:4],'donations':donations[:6]}
     return render(request,'base/index.html',context)
 
 def about(request):
@@ -89,7 +91,30 @@ def project(request,pk):
     return render(request,'base/project.html',context)
 
 def donations(request):
-     return render(request,'base/donations.html')
+    q= request.GET.get('q','') 
+    donations = Donation.objects.filter(
+        Q(title__icontains=q)|
+        Q(categories__name__icontains=q)|
+        Q(content__icontains=q)
+    ).order_by('title')
+    unique_donation=[]
+    seen_titles = set()
+    for donation in donations:
+            if donation.title not in seen_titles:
+                unique_donation.append(donation)
+                seen_titles.add(donation.title)
+    
+    paginator = Paginator(unique_donation, 6)
+    page_number = request.GET.get('page')
+    page = paginator.get_page(page_number)
+    categories = Category.objects.all().order_by('name')
+    context = {'categories':categories,'page': page,'q':q}
+    return render(request,'base/donations.html',context)
 
-def donation(request):
-    return render(request,'base/donation.html')
+def donation(request,pk):
+    q= request.GET.get('q','') 
+    donation = Donation.objects.get(slug=pk)
+    categories = Category.objects.all().order_by('name')
+    context = {'donation': donation,'q':q,'categories':categories}
+
+    return render(request,'base/donation.html',context)

@@ -8700,3 +8700,12 @@ input[type='color'] {
 
   }
 }
+/* index page image project */
+
+.rotated-img{
+  width: 400px;
+  transform: rotate(-25deg);
+  border-radius: 10px;
+  border: 4px solid white;
+  margin-top: 40px;
+}

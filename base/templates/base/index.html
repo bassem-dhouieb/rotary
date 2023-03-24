@@ -304,7 +304,7 @@
               </li>
             </ul>
             <div class="tpvolunteers-2-btn">
-              <a class="tp-btn tp-btn-shine-effect" href="{% url 'contact' %}"
+              <a class="tp-btn tp-btn-shine-effect" href="whatsapp://send?phone=+21621251143&text=I+am+writing+to+express+my+interest+in+joining+Rotary+Monastir+and+contributing+to+your+important+mission.+Your+work+in+charity+is+truly+inspiring%2C+and+I+would+be+honored+to+support+your+efforts!" target="_blank"
                 >Became a volenteer</a
               >
             </div>
@@ -378,17 +378,19 @@
         </div>
       </div>
       <div class="causes-active slick-20">
+
+        {% for donation in donations %}
         <div class="causes-item">
           <div class="tpcard__wrapper tpcard__wrappr-2 white-bg">
             <div class="tpcard__img grayscale">
-              <a href="donation-details.html"
-                ><img src="{% static 'img/card/home1/card-1.jpg'%}" alt=""
+              <a href="{% url 'donation' donation.slug %}"
+                ><img src="{{donation.image.url}}" alt=""
               /></a>
             </div>
             <div class="tpcard__content">
               <h4 class="tpcard__title">
-                <a href="donation-details.html"
-                  >Help Children Rise out of Poverty of this child</a
+                <a href="{% url 'donation' donation.slug %}"
+                  >{{donation.title}}</a
                 >
               </h4>
               <div class="tpcard__progresss">
@@ -397,212 +399,36 @@
                     class="progress-bar"
                     role="progressbar"
                     aria-label="Example with label"
-                    style="width: 80%"
+                    style="width: {{donation.get_percent}}%"
                     aria-valuenow="25"
                     aria-valuemin="0"
                     aria-valuemax="100"
                   >
-                    <span>80%</span>
+                    <span>{{donation.get_percent}}%</span>
                   </div>
                 </div>
               </div>
               <div class="tpcard__bottom d-flex justify-content-between">
                 <div class="tpcard__details">
                   <span class="subtitle">our goal</span> <br />
-                  <span class="sale">$34.0000</span>
+                  <span class="sale">{{donation.get_goal}} Dt</span>
                 </div>
                 <div class="tpcard__details">
                   <span class="subtitle">Raised</span> <br />
-                  <span class="sale">$11.9098</span>
+                  <span class="sale">{{donation.get_raised}} Dt</span>
                 </div>
                 <div class="tpcard__details">
                   <span class="subtitle">to go</span> <br />
-                  <span class="sale">$56,000</span>
+                  <span class="sale">{{donation.get_to_go}} Dt</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="causes-item">
-          <div class="tpcard__wrapper tpcard__wrappr-2 white-bg">
-            <div class="tpcard__img grayscale">
-              <a href="donation-details.html"
-                ><img src="{% static 'img/card/home1/card-2.jpg'%}" alt=""
-              /></a>
-            </div>
-            <div class="tpcard__content">
-              <h4 class="tpcard__title">
-                <a href="donation-details.html"
-                  >You Can Give Kids in India Clean Water and food</a
-                >
-              </h4>
-              <div class="tpcard__progresss">
-                <div class="progress">
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    aria-label="Example with label"
-                    style="width: 75%"
-                    aria-valuenow="25"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  >
-                    <span>75%</span>
-                  </div>
-                </div>
-              </div>
-              <div class="tpcard__bottom d-flex justify-content-between">
-                <div class="tpcard__details">
-                  <span class="subtitle">our goal</span> <br />
-                  <span class="sale">$34.0000</span>
-                </div>
-                <div class="tpcard__details">
-                  <span class="subtitle">Raised</span> <br />
-                  <span class="sale">$11.9098</span>
-                </div>
-                <div class="tpcard__details">
-                  <span class="subtitle">to go</span> <br />
-                  <span class="sale">$56,000</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="causes-item">
-          <div class="tpcard__wrapper tpcard__wrappr-2 white-bg">
-            <div class="tpcard__img grayscale">
-              <a href="donation-details.html"
-                ><img src="{% static 'img/card/home1/card-3.jpg'%}" alt=""
-              /></a>
-            </div>
-            <div class="tpcard__content">
-              <h4 class="tpcard__title">
-                <a href="donation-details.html"
-                  >Life skills for Children in South Africa and UK</a
-                >
-              </h4>
-              <div class="tpcard__progresss">
-                <div class="progress">
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    aria-label="Example with label"
-                    style="width: 95%"
-                    aria-valuenow="25"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  >
-                    <span>95%</span>
-                  </div>
-                </div>
-              </div>
-              <div class="tpcard__bottom d-flex justify-content-between">
-                <div class="tpcard__details">
-                  <span class="subtitle">our goal</span> <br />
-                  <span class="sale">$34.0000</span>
-                </div>
-                <div class="tpcard__details">
-                  <span class="subtitle">Raised</span> <br />
-                  <span class="sale">$11.9098</span>
-                </div>
-                <div class="tpcard__details">
-                  <span class="subtitle">to go</span> <br />
-                  <span class="sale">$56,000</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="causes-item">
-          <div class="tpcard__wrapper tpcard__wrappr-2 white-bg">
-            <div class="tpcard__img grayscale">
-              <a href="donation-details.html"
-                ><img src="{% static 'img/card/home1/card-4.jpg'%}" alt=""
-              /></a>
-            </div>
-            <div class="tpcard__content">
-              <h4 class="tpcard__title">
-                <a href="donation-details.html"
-                  >Help poor people give food and Careing african child</a
-                >
-              </h4>
-              <div class="tpcard__progresss">
-                <div class="progress">
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    aria-label="Example with label"
-                    style="width: 65%"
-                    aria-valuenow="25"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  >
-                    <span>65%</span>
-                  </div>
-                </div>
-              </div>
-              <div class="tpcard__bottom d-flex justify-content-between">
-                <div class="tpcard__details">
-                  <span class="subtitle">our goal</span> <br />
-                  <span class="sale">$34.0000</span>
-                </div>
-                <div class="tpcard__details">
-                  <span class="subtitle">Raised</span> <br />
-                  <span class="sale">$11.9098</span>
-                </div>
-                <div class="tpcard__details">
-                  <span class="subtitle">to go</span> <br />
-                  <span class="sale">$56,000</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="causes-item">
-          <div class="tpcard__wrapper tpcard__wrappr-2 white-bg">
-            <div class="tpcard__img grayscale">
-              <a href="donation-details.html"
-                ><img src="{% static 'img/card/home1/card-5.jpg'%}" alt=""
-              /></a>
-            </div>
-            <div class="tpcard__content">
-              <h4 class="tpcard__title">
-                <a href="donation-details.html"
-                  >In 1922 there is a pledge of fundamental</a
-                >
-              </h4>
-              <div class="tpcard__progresss">
-                <div class="progress">
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    aria-label="Example with label"
-                    style="width: 80%"
-                    aria-valuenow="25"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  >
-                    <span>80%</span>
-                  </div>
-                </div>
-              </div>
-              <div class="tpcard__bottom d-flex justify-content-between">
-                <div class="tpcard__details">
-                  <span class="subtitle">our goal</span> <br />
-                  <span class="sale">$34.0000</span>
-                </div>
-                <div class="tpcard__details">
-                  <span class="subtitle">Raised</span> <br />
-                  <span class="sale">$11.9098</span>
-                </div>
-                <div class="tpcard__details">
-                  <span class="subtitle">to go</span> <br />
-                  <span class="sale">$56,000</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
+        {% endfor %}
+
+     
       </div>
       <div class="row">
         <div class="tpcard-btn d-flex justify-content-center mt-55">
@@ -652,7 +478,7 @@
               </li>
             </ul>
             <div class="tpcta-3-btn">
-              <a class="tp-btn tp-btn-shine-effect" href="{% url 'contact' %}"
+              <a class="tp-btn tp-btn-shine-effect" href="whatsapp://send?phone=+21621251143&text=I+am+writing+to+express+my+interest+in+joining+Rotary+Monastir+and+contributing+to+your+important+mission.+Your+work+in+charity+is+truly+inspiring%2C+and+I+would+be+honored+to+support+your+efforts!" target="_blank"
                 >Became a volenteer</a
               >
             </div>
@@ -716,25 +542,27 @@
           </div>
         </div>
       </div>
+
+      {% for project in projects %}
       <div class="tpproject__wrapper">
         <div class="row align-items-center">
           <div class="col-xl-6 col-lg-6 col-md-6 col-8">
             <div class="tpproject">
               <div class="tpproject__thumb d-none d-md-block">
-                <a href="our-portfolio.html" class="grayscale"
-                  ><img src="{% static 'img/project/project.png' %}" alt=""
+                <a href="{% url 'project' project.slug %}" class="grayscale"
+                  ><img class="rotated-img" src="{{project.image.url}}" alt=""
                 /></a>
               </div>
               <div class="tpproject__content">
                 <h3 class="tpproject__title">
-                  <a href="our-portfolio.html">Childern in west Africa</a>
+                  <a href="{% url 'project' project.slug %}">{{project.title}}</a>
                 </h3>
               </div>
             </div>
           </div>
           <div class="col-xl-6 col-lg-6 col-md-6 col-4">
             <div class="tpproject__icon text-end">
-              <a href="our-portfolio.html">
+              <a href="">
                 <svg
                   width="40"
                   height="38"
@@ -752,115 +580,10 @@
           </div>
         </div>
       </div>
-      <div class="tpproject__wrapper">
-        <div class="row align-items-center">
-          <div class="col-xl-6 col-lg-6 col-md-6 col-8">
-            <div class="tpproject">
-              <div class="tpproject__thumb d-none d-md-block">
-                <a href="our-portfolio.html" class="grayscale"
-                  ><img src="{% static 'img/project/project-2.png' %}" alt=""
-                /></a>
-              </div>
-              <div class="tpproject__content">
-                <h3 class="tpproject__title">
-                  <a href="our-portfolio.html">Education help for Zimbabwe</a>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-6 col-lg-6 col-md-6 col-4">
-            <div class="tpproject__icon text-end">
-              <a href="our-portfolio.html">
-                <svg
-                  width="40"
-                  height="38"
-                  viewBox="0 0 40 38"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M39.4994 2.04284C39.523 1.21475 38.8709 0.52427 38.0428 0.500609L24.5483 0.115054C23.7203 0.0913932 23.0298 0.743513 23.0061 1.5716C22.9825 2.39969 23.6346 3.09017 24.4627 3.11383L36.4578 3.45655L36.1151 15.4517C36.0914 16.2797 36.7435 16.9702 37.5716 16.9939C38.3997 17.0175 39.0902 16.3654 39.1138 15.5373L39.4994 2.04284ZM3.02994 37.0905L39.0299 3.09052L36.9701 0.909478L0.970065 34.9095L3.02994 37.0905Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tpproject__wrapper">
-        <div class="row align-items-center">
-          <div class="col-xl-6 col-lg-6 col-md-6 col-8">
-            <div class="tpproject">
-              <div class="tpproject__thumb d-none d-md-block">
-                <a href="our-portfolio.html" class="grayscale"
-                  ><img src="{% static 'img/project/project-3.png' %}" alt=""
-                /></a>
-              </div>
-              <div class="tpproject__content">
-                <h3 class="tpproject__title">
-                  <a href="our-portfolio.html">Give food and water</a>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-6 col-lg-6 col-md-6 col-4">
-            <div class="tpproject__icon text-end">
-              <a href="our-portfolio.html">
-                <svg
-                  width="40"
-                  height="38"
-                  viewBox="0 0 40 38"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M39.4994 2.04284C39.523 1.21475 38.8709 0.52427 38.0428 0.500609L24.5483 0.115054C23.7203 0.0913932 23.0298 0.743513 23.0061 1.5716C22.9825 2.39969 23.6346 3.09017 24.4627 3.11383L36.4578 3.45655L36.1151 15.4517C36.0914 16.2797 36.7435 16.9702 37.5716 16.9939C38.3997 17.0175 39.0902 16.3654 39.1138 15.5373L39.4994 2.04284ZM3.02994 37.0905L39.0299 3.09052L36.9701 0.909478L0.970065 34.9095L3.02994 37.0905Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tpproject__wrapper mb-60">
-        <div class="row align-items-center">
-          <div class="col-xl-6 col-lg-6 col-md-6 col-8">
-            <div class="tpproject">
-              <div class="tpproject__thumb d-none d-md-block">
-                <a href="our-portfolio.html" class="grayscale"
-                  ><img src="{% static 'img/project/project-4.png' %}" alt=""
-                /></a>
-              </div>
-              <div class="tpproject__content">
-                <h3 class="tpproject__title">
-                  <a href="our-portfolio.html">Childern in west Africa</a>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-6 col-lg-6 col-md-6 col-4">
-            <div class="tpproject__icon text-end">
-              <a href="our-portfolio.html">
-                <svg
-                  width="40"
-                  height="38"
-                  viewBox="0 0 40 38"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M39.4994 2.04284C39.523 1.21475 38.8709 0.52427 38.0428 0.500609L24.5483 0.115054C23.7203 0.0913932 23.0298 0.743513 23.0061 1.5716C22.9825 2.39969 23.6346 3.09017 24.4627 3.11383L36.4578 3.45655L36.1151 15.4517C36.0914 16.2797 36.7435 16.9702 37.5716 16.9939C38.3997 17.0175 39.0902 16.3654 39.1138 15.5373L39.4994 2.04284ZM3.02994 37.0905L39.0299 3.09052L36.9701 0.909478L0.970065 34.9095L3.02994 37.0905Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      {% endfor %}
+
+     
+    
   </section>
   <!-- our project area end -->
 
