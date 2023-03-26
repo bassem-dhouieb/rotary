@@ -715,12 +715,13 @@ var interval = 3000;
 // var timer = setInterval(changeSlide, interval);
 
   function changeSlide(n) {
+    currentImg = 0;
     for (var i = 0; i < imgs.length; i++) {
       imgs[i].style.opacity = 0;
       dots[i].className = dots[i].className.replace(' active', '');
     }
 
-    currentImg = (currentImg + 1) % imgs.length;
+    currentImg = (currentImg + n) % imgs.length;
 
     // if (n != undefined) {
     //   clearInterval(timer);
