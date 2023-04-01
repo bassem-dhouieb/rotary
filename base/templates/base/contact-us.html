@@ -22,58 +22,35 @@
             <div class="contact-form">
               <form
                 id="contact-form"
-                action="https://weblearnbd.net/tphtml/donafund/assets/mail.php"
+                action=""
                 method="post"
-              >
+                >
+                {% csrf_token %}
                 <div class="row">
                   <h3 class="contact-form-title">Send a message</h3>
                   <div class="col-xl-6 col-lg-6">
                     <div class="contact-input">
-                      <input
-                        name="name"
-                        class="input"
-                        type="text"
-                        placeholder="Fast Name"
-                      />
+                      {{form.first_name}}
                     </div>
                   </div>
                   <div class="col-xl-6 col-lg-6">
                     <div class="contact-input">
-                      <input
-                        name="l_name"
-                        class="input"
-                        type="text"
-                        placeholder="Last Name"
-                      />
+                      {{ form.last_name }}
                     </div>
                   </div>
                   <div class="col-xl-6 col-lg-6">
                     <div class="contact-input">
-                      <input
-                        name="email"
-                        class="input"
-                        type="email"
-                        placeholder="Email"
-                      />
+                      {{ form.email }}
                     </div>
                   </div>
                   <div class="col-xl-6 col-lg-6">
                     <div class="contact-input">
-                      <input
-                        name="subject"
-                        class="input"
-                        type="text"
-                        placeholder="Your Subject"
-                      />
+                      {{ form.subject }}
                     </div>
                   </div>
                   <div class="col-xl-12">
                     <div class="contact-input">
-                      <textarea
-                        name="message"
-                        class="textarea"
-                        placeholder="Your message"
-                      ></textarea>
+                      {{ form.message }}
                     </div>
                     <div class="contact-check">
                       <div class="form-check">

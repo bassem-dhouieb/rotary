@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post, Member,Category,Project,Donation
+from .forms import ContactForm
 from django.core.paginator import Paginator
 from django.db.models import Q
 
@@ -28,7 +29,21 @@ def team(request):
     return render(request,'base/our-volunteer.html',context)
 
 def contact(request):
-    return render(request,'base/contact-us.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            email = form.cleaned_data['email']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            # Do something with the form data, such as saving to a database
+            # or sending an email
+            return render(request, 'contact_success.html')
+    else:
+        form = ContactForm()    
+    
+    return render(request,'base/contact-us.html',{'form':form})
 
 def blogs(request):
     q= request.GET.get('q','') 
