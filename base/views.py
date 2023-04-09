@@ -1,9 +1,15 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render,redirect
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 from .models import Post, Member,Category,Project,Donation
 from .forms import ContactForm
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.core.mail import send_mail
+from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt,csrf_protect 
+from django.contrib import messages
+
 
 
 
@@ -18,17 +24,18 @@ def index(request):
 
 def about(request):
     members = Member.objects.all()
-    
     context = {'members' : members}
     return render(request,'base/about.html',context)
 
 def team(request):
     members = Member.objects.all()
-
     context = {'members':members}
     return render(request,'base/our-volunteer.html',context)
 
+
+@csrf_exempt
 def contact(request):
+    
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -37,13 +44,25 @@ def contact(request):
             email = form.cleaned_data['email']
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
-            # Do something with the form data, such as saving to a database
-            # or sending an email
-            return render(request, 'contact_success.html')
+            email_message = f"From: {first_name} {last_name} <{email}>\n\nSubject: {subject}\n\n{message}"
+            if send_mail(subject, email_message, settings.DEFAULT_FROM_EMAIL, [settings.EMAIL_HOST_USER]):
+                error = "Your message has been sent."
+            else:
+                error = "Please try again."
+        else:  
+            error = "There was an error with your message. Please try again."
+        return render(request, 'base/success.html',{'error':error})
+
+
     else:
-        form = ContactForm()    
+        form = ContactForm()
     
-    return render(request,'base/contact-us.html',{'form':form})
+    context = {'form': form}
+    return render(request, 'base/contact-us.html', context)
+
+        
+
+
 
 def blogs(request):
     q= request.GET.get('q','') 

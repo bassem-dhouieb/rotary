@@ -20,38 +20,24 @@
         <div class="col-lg-12">
           <div class="contact-form-box">
             <div class="contact-form">
-              <form
-                id="contact-form"
-                action=""
-                method="post"
-                >
+              <form id="contact-form"  method="POST">
                 {% csrf_token %}
                 <div class="row">
                   <h3 class="contact-form-title">Send a message</h3>
                   <div class="col-xl-6 col-lg-6">
-                    <div class="contact-input">
-                      {{form.first_name}}
-                    </div>
+                    <div class="contact-input">{{form.first_name}}</div>
                   </div>
                   <div class="col-xl-6 col-lg-6">
-                    <div class="contact-input">
-                      {{ form.last_name }}
-                    </div>
+                    <div class="contact-input">{{ form.last_name }}</div>
                   </div>
                   <div class="col-xl-6 col-lg-6">
-                    <div class="contact-input">
-                      {{ form.email }}
-                    </div>
+                    <div class="contact-input">{{ form.email }}</div>
                   </div>
                   <div class="col-xl-6 col-lg-6">
-                    <div class="contact-input">
-                      {{ form.subject }}
-                    </div>
+                    <div class="contact-input">{{ form.subject }}</div>
                   </div>
                   <div class="col-xl-12">
-                    <div class="contact-input">
-                      {{ form.message }}
-                    </div>
+                    <div class="contact-input">{{ form.message }}</div>
                     <div class="contact-check">
                       <div class="form-check">
                         <input
@@ -79,7 +65,6 @@
                             Send Message
                           </button>
                         </div>
-                        <p class="ajax-response"></p>
                       </div>
                       <div class="col-sm-6">
                         <div class="tp-contact-info text-sm-end">
@@ -93,6 +78,7 @@
                     </div>
                   </div>
                 </div>
+              
               </form>
             </div>
           </div>
